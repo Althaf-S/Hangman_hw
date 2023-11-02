@@ -11,14 +11,20 @@ def get_a_word(wordlist="/usr/share/dict/words"):
               continue
             if len(word) < 5:
               continue
-            good_words.append(word)   
+            good_words.append(word)
         return random.choice(good_words)
 
-def masking_the_word(wrd = get_a_word()):        
+def masking_the_word(word = get_a_word()):        
+   global length
+   length = len(word)
    x = ""
-   for _ in range(len(wrd)):
+   for _ in range(len(word)):
       x += "-"
    return x
 
-get_a_word()
-print(masking_the_word())
+ 
+   
+
+if __name__ == "__main__":
+  print(masking_the_word())
+
