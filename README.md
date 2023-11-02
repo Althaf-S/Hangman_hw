@@ -1,2 +1,2 @@
 # Hangman_hw
-#Repository dedicated for hangman project
+Repository dedicated for hangman project
