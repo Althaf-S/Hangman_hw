@@ -9,6 +9,8 @@ def get_a_word(wordlist="/usr/share/dict/words"):
                 continue
             if not word.isalpha():
               continue
+            if len(word) < 5:
+              continue
             good_words.append(word)
 
         return random.choice(good_words)
