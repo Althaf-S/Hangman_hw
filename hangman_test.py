@@ -15,7 +15,17 @@ def test_random_word_lowercase():
 def test_random_word_isalphabet():
   fname = "/tmp/simple_wordlist"
   with open(fname,"w") as f:
-    f.writelines(["Grape's\n", "Mang-oes\n", "apple"])
+    f.writelines(["Grape's\n", "mang-oes\n", "apple\n"])
+    
+  for _ in range(100):
+    assert hangman.get_a_word(fname) == "apple"
+    
+  os.unlink(fname)
+  
+def test_random_word_length():
+  fname = "/tmp/simplewords"
+  with open(fname,"w") as f:
+    f.writelines(["Grape\n", "apple\n", "mang-o's\n", "He\n", "she\n"])
     
   for _ in range(100):
     assert hangman.get_a_word(fname) == "apple"
