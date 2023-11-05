@@ -30,5 +30,11 @@ def get_status(secret_word, attempts_left, gussed):
    gussed = ",".join(gussed)
    return masked_word, gussed, attempts_left
    
+def game_play(secret_word, gussed, guess, attempts_left):
+   if guess in gussed:
+     return gussed, attempts_left, "next"
+   #guessed.append(guess)  
+   
+   
 
 
