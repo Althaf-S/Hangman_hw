@@ -70,7 +70,7 @@ def test_get_status():
     masked_word, gussed, attempts_left = hangman.get_status(secret_word, attempts_left, gussed)
     
     assert masked_word == "ae----a-e"
-    assert gussed == "c,a,j,e"
+    assert gussed == "caje"
     assert attempts_left == 20
   
 def test_repeating_same_entry():
