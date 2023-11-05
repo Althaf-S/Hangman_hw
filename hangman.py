@@ -27,13 +27,13 @@ def get_masked_word(word,gussed):
    
 def get_status(secret_word, attempts_left, gussed):
    masked_word = get_masked_word(secret_word, gussed)
-   gussed = ",".join(gussed)
+   gussed = "".join(gussed)
    return masked_word, gussed, attempts_left
    
 def game_play(secret_word, gussed, guess, attempts_left):
    if guess in gussed:
      return gussed, attempts_left, "next"
-   gussed.append(guess)
+   gussed += guess
    if "-" not in get_masked_word(secret_word, gussed):
      return gussed, attempts_left, "game won"
    
@@ -43,6 +43,29 @@ def game_play(secret_word, gussed, guess, attempts_left):
        return gussed, attempts_left, "game over" 
    return gussed, attempts_left, "next"
       
+def main():
+  print("HANGMAN")
+  print("_______\n\n")
+  secret_word = get_a_word()
+  attempts_left = 10
+  gussed = []
+  while True:
+        masked_word, gussed, attempts_left = get_status(secret_word, attempts_left, gussed)
+        print (f"""{masked_word}
+Gussed letters        {gussed}
+Attempts left: {attempts_left}""")
+        guess = input("")
+        gussed, attempts_left, action = game_play(secret_word, gussed, guess, attempts_left)
+        if action == "game over":
+            print (f"Game Over You Lost. The word is {secret_word}")
+            break
+        if action == "game won":
+            print (f"You Won The Game. The word is {secret_word}")
+            break
+            
+if __name__ == "__main__":
+   main()
+  
    
    
 
