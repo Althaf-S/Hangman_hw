@@ -3,14 +3,14 @@ import os
 import hangman
 
 def test_random_word_lowercase():
-    fname = "/tmp/sample_wordlist"
-    with open(fname, "w") as f:
-        f.writelines(["Grape\n", "apple\n", "Mango\n"])
+   fname = "/tmp/sample_wordlist"
+   with open(fname, "w") as f:
+       f.writelines(["Grape\n", "apple\n", "Mango\n"])
         
-    for _ in range(100):
-        assert hangman.get_a_word(fname) == "apple"
+   for _ in range(100):
+       assert hangman.get_a_word(fname) == "apple"
 
-    os.unlink(fname)
+   os.unlink(fname)
     
 def test_random_word_isalphabet():
   fname = "/tmp/simple_wordlist"
@@ -32,9 +32,19 @@ def test_random_word_length():
     
   os.unlink(fname)
   
-def test_masking_the_word():
-  for _ in range(100):
-    assert hangman.masking_the_word("apple") == "-----"
+def test_no_guess_masked_word():
+  word = "aeroplane"
+  gussed = []
+  masked_word = hangman.get_masked_word(word,gussed)
+  assert masked_word == "---------"
+  
+def test_one_corresct_guess_masked_word():
+  sample = ["r"]
+  word = "aeroplane"
+  masked_word = hangman.get_masked_word(word,sample)
+  assert masked_word == "--r------"
+    
+
     
 
 
