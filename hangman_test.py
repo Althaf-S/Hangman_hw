@@ -85,17 +85,17 @@ def test_repeating_same_entry():
    assert attempts_left == 5
    assert action == 'next'
   
-#def test_correct_guess_game_not_over():
- #  secret_word = "aeroplane"
- #  gussed = []
- #  guess = "a"
- #  attempts_left = 5
- #  
- #  gussed, attempts_left, action = hangman.game_play(secret_word, gussed, guess, attempts_left)
+def test_correct_guess_game_not_over():
+   secret_word = "aeroplane"
+   gussed = []
+   guess = "a"
+   attempts_left = 5
+   
+   gussed, attempts_left, action = hangman.game_play(secret_word, gussed, guess, attempts_left)
   
- #  assert attempts_left == 5
- #  assert gussed == 'a'
- #  assert action == "next"
+   assert gussed == ['a']
+   assert attempts_left == 5 
+   assert action == "next"
    
 
 
