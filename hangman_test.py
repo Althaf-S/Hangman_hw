@@ -38,11 +38,19 @@ def test_no_guess_masked_word():
   masked_word = hangman.get_masked_word(word,gussed)
   assert masked_word == "---------"
   
-def test_one_corresct_guess_masked_word():
-  sample = ["r"]
+def test_one_correct_guess_masked_word():
+  sample = ['r']
   word = "aeroplane"
   masked_word = hangman.get_masked_word(word,sample)
   assert masked_word == "--r------"
+  
+def test_wrong_guess():
+  guessed = ['u']
+  word = "aeroplane"
+  masked_word = hangman.get_masked_word(word,guessed)
+  assert masked_word == "---------"
+  
+
     
 
     
