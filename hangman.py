@@ -34,8 +34,13 @@ def game_play(secret_word, gussed, guess, attempts_left):
    if guess in gussed:
      return gussed, attempts_left, "next"
    gussed.append(guess)
+   if "-" not in get_masked_word(secret_word, gussed):
+     return gussed, attempts_left, "game won"
+   
    if guess not in secret_word:
-      attempts_left -= 1 
+     attempts_left -= 1
+     if attempts_left == 0:
+       return gussed, attempts_left, "game over" 
    return gussed, attempts_left, "next"
       
    
