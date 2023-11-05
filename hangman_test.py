@@ -44,19 +44,19 @@ def test_one_correct_guess_masked_word():
   masked_word = hangman.get_masked_word(word,sample)
   assert masked_word == "--r------"
   
-def test_wrong_guess():
+def test_wrong_guess_masked_word():
   guessed = ['u']
   word = "aeroplane"
   masked_word = hangman.get_masked_word(word,guessed)
   assert masked_word == "---------"
   
-def test_two_correct_guess():
+def test_two_correct_guess_masked_word():
   word = "aeroplane"
   gussed = ['r','p']
   masked_word = hangman.get_masked_word(word,gussed)
   assert masked_word == "--r-p----"
   
-def test_single_word_multiple_occurence():
+def test_single_word_multiple_occurence_masked_word():
   word = "aeroplane"
   gussed = ['a','e','o','n']
   masked_word = hangman.get_masked_word(word,gussed)
@@ -96,6 +96,19 @@ def test_correct_guess_game_not_over():
    assert gussed == ['a']
    assert attempts_left == 5 
    assert action == "next"
+   
+def test_wrong_guess():
+   secret_word = "aeroplane"
+   gussed = ["x"]
+   guess = "j"
+   attempts_left = 5
+   
+   gussed, attempts_left, action = hangman.game_play(secret_word, gussed, guess, attempts_left)
+   
+   assert gussed == ["x","j"]
+   assert attempts_left == 4
+   assert action == "next"
+   
    
 
 
