@@ -25,4 +25,10 @@ def get_masked_word(word,gussed):
        sample.append("-")
    return "".join(sample)
    
+def get_status(secret_word, attempts_left, gussed):
+   masked_word = get_masked_word(secret_word, gussed)
+   gussed = ",".join(gussed)
+   return masked_word, gussed, attempts_left
+   
+
 

@@ -61,10 +61,19 @@ def test_single_word_multiple_occurence():
   gussed = ['a','e','o','n']
   masked_word = hangman.get_masked_word(word,gussed)
   assert masked_word == "ae-o--ane"
+
+def test_get_status():
+    secret_word = "aeroplane"
+    gussed = ["c","a","j","e"]
+    attempts_left = 20
+    
+    masked_word, gussed, attempts_left = hangman.get_status(secret_word, attempts_left, gussed)
+    
+    assert masked_word == "ae----a-e"
+    assert gussed == "c,a,j,e"
+    assert attempts_left == 20
   
 
-  
-  
 
     
 
