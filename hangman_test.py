@@ -73,6 +73,30 @@ def test_get_status():
     assert gussed == "c,a,j,e"
     assert attempts_left == 20
   
+def test_repeating_same_entry():
+   secret_word = "aeroplane"
+   gussed = ["h","k"]
+   guess = "h"
+   attempts_left = 5
+   
+   gussed, attempts_left, action = hangman.game_play(secret_word, gussed, guess, attempts_left) 
+   
+   assert gussed == ["h","k"]
+   assert attempts_left == 5
+   assert action == 'next'
+  
+#def test_correct_guess_game_not_over():
+ #  secret_word = "aeroplane"
+ #  gussed = []
+ #  guess = "a"
+ #  attempts_left = 5
+ #  
+ #  gussed, attempts_left, action = hangman.game_play(secret_word, gussed, guess, attempts_left)
+  
+ #  assert attempts_left == 5
+ #  assert gussed == 'a'
+ #  assert action == "next"
+   
 
 
     
