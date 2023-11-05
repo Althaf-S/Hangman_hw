@@ -109,6 +109,28 @@ def test_wrong_guess():
    assert attempts_left == 4
    assert action == "next"
    
+def test_guess_game_over():
+   secret_word = "plane"
+   gussed = ["a","e","r","o","l","a","n","e"]
+   guess = "p"
+   attempts_left = 1
+   
+   gussed, attempts_left, action = hangman.game_play(secret_word, gussed, guess, attempts_left)
+     
+   assert action == "game won"   
+   
+def test_wrong_guess_game_over():
+   secret_word = "aeroplane"
+   gussed = ["x"]
+   guess = "j"
+   attempts_left = 1
+   
+   gussed, attempts_left, action = hangman.game_play(secret_word, gussed, guess, attempts_left)
+   
+  
+   assert action == "game over"
+    
+   
    
 
 
