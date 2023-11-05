@@ -12,19 +12,17 @@ def get_a_word(wordlist="/usr/share/dict/words"):
             if len(word) < 5:
               continue
             good_words.append(word)
-        return random.choice(good_words)
+    return random.choice(good_words)
 
-def masking_the_word(word = get_a_word()):        
-   global length
-   length = len(word)
-   x = ""
-   for _ in range(len(word)):
-      x += "-"
-   return x
 
- 
    
-
-if __name__ == "__main__":
-  print(masking_the_word())
+def get_masked_word(word,gussed):
+   sample = []
+   for i in word:
+     if i in gussed:
+       sample.append(i)
+     else:
+       sample.append("-")
+   return "".join(sample)
+   
 
