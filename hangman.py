@@ -33,7 +33,9 @@ def get_status(secret_word, attempts_left, gussed):
 def game_play(secret_word, gussed, guess, attempts_left):
    if guess in gussed:
      return gussed, attempts_left, "next"
-   #guessed.append(guess)  
+   gussed.append(guess) 
+   return gussed, attempts_left, "next"
+      
    
    
 
