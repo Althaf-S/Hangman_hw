@@ -50,6 +50,18 @@ def test_wrong_guess():
   masked_word = hangman.get_masked_word(word,guessed)
   assert masked_word == "---------"
   
+def test_two_correct_guess():
+  word = "aeroplane"
+  gussed = ['r','p']
+  masked_word = hangman.get_masked_word(word,gussed)
+  assert masked_word == "--r-p----"
+  
+def test_single_word_multiple_occurence():
+  word = "aeroplane"
+  gussed = ['a','e','o','n']
+  masked_word = hangman.get_masked_word(word,gussed)
+  assert masked_word == "ae-o--ane"
+  
 
     
 
